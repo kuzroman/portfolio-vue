@@ -4,8 +4,9 @@
       <div>
         <b>Pages</b>
         <ul class="menu">
-          <li><router-link to="/">/Home</router-link></li>
-          <li><router-link to="/page-1">/page-1</router-link></li>
+          <li v-for="item in menuItems" :key="item.name">
+            <router-link :to="item.path">/{{ item.name }}</router-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -20,9 +21,13 @@
 
 <script>
 import './styles/index.scss'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
+  computed: {
+    ...mapGetters(['menuItems']),
+  },
 }
 </script>
 
@@ -58,6 +63,7 @@ export default {
 .fade-leave-active {
   transition: opacity 0.75s ease;
 }
+
 .fade-enter,
 .fade-leave-active {
   opacity: 0;

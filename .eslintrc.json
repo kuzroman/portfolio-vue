@@ -1,6 +1,7 @@
 {
   "ignorePatterns": ["dist", "node_modules"],
   "rules": {
+    "import/no-unresolved": "off", // vuex catch error without it rule - Unable to resolve path to module 'vuex'
     "max-len": [
       "error",
       {
